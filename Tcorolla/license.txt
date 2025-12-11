@@ -1,0 +1,11 @@
+Model Information:
+* title:	Toyota Corolla 2020
+* source:	https://sketchfab.com/3d-models/toyota-corolla-2020-6d7d34ee42734d1ab28a6b1f1c5fc4fc
+* author:	ItsDiyor (https://sketchfab.com/ItsDiyor)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Toyota Corolla 2020" (https://sketchfab.com/3d-models/toyota-corolla-2020-6d7d34ee42734d1ab28a6b1f1c5fc4fc) by ItsDiyor (https://sketchfab.com/ItsDiyor) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
