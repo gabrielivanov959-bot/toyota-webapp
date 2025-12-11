@@ -1,0 +1,415 @@
+/* Общи настройки */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fafafa;
+  color: #000000;
+}
+
+/* CSS за header */
+.site-header {
+  background: #fff;        /* бял фон ( както Toyota ) */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 100px;
+}
+
+.site-header .logo img {
+  height: 90px; /* или както ти харесва */
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav li {
+  margin-left: 30px;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #111;    /* тъмно сив/черен цвят за текст */
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  color: #EB0A1E; /* Toyota „червено“ (#EB0A1E) или твой акцент */
+}
+
+/* Мобилно меню */
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  .main-nav ul {
+    flex-direction: column;
+  }
+  .main-nav li {
+    margin: 15px 0;
+    text-align: center;
+  }
+  .mobile-toggle {
+    display: block;
+  }
+}
+
+nav a {
+  color: #ccc;
+  margin-left: 25px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+  color: #e50914;
+}
+
+/* Hero секция */
+.hero-section {
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6); /* тъмен филтър за контраст */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content h2 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.hero-content p {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+}
+
+.btn {
+  display: inline-block;
+  background: #EB0A1E; /* червен акцент */
+  color: #fff;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #c20818;
+}
+
+
+/* Секции */
+section {
+  padding: 60px;
+}
+
+/* Коли */
+.cars {
+  grid-template-columns: repeat(3, 1fr);
+  display: grid;
+  gap: 30px;
+}
+
+/* ⭐ Точно 3 коли на ред при големи екрани */
+@media (min-width: 992px) {
+  .cars {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ⭐ 2 коли на ред при средни екрани */
+@media (min-width: 600px) and (max-width: 991px) {
+  .cars {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ⭐ 1 кола на ред при малки екрани */
+@media (max-width: 599px) {
+  .cars {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.car-card {
+  background: #ececec;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.car-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.car-card .info {
+  padding: 20px;
+}
+
+.car-card h3 {
+  margin-top: 0;
+}
+
+.car-card p {
+  color: #494949;
+}
+
+.car-card a {
+  display: inline-block;
+  margin-top: 10px;
+  background: #e50914;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  text-decoration: none;
+}
+
+.car-card a:hover {
+  background: #b40610;
+}
+
+/* Контактна форма */
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+form label {
+  display: block;
+  margin-bottom: 8px;
+  color: #ccc;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  background: #e9e6e6;
+  border: 1px solid #000000;
+  color: white;
+  border-radius: 8px;
+}
+
+form button {
+  background: #e50914;
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+form button:hover {
+  background: #b40610;
+}
+
+.configurator {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 20px;
+  background: #fafafa;
+  border-radius: 16px;
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+.confighead {
+   max-width: 1200px;
+  margin: 60px auto;
+  padding: 20px;
+  background: #fafafa;
+  border-radius: 16px;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+#car3d-container {
+    width: 100%;
+    height: 500px; /* можеш да го смениш */
+    background: transparent;
+}
+
+.config-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 30px;
+}
+/* Контейнер на картите */
+
+.cars {
+  display: flex;
+  justify-content: center;
+  gap:30px;
+  flex-wrap: nowrap;
+  max-width: 1400px;
+   margin: 40px;
+ }
+
+/* Основен стил на картите */
+.car-card {
+  width: 600px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: 0.3s;
+  position: relative;
+}
+
+/* Снимките */
+.car-card img {
+  width: 100%;
+  transition: transform 0.4s ease;
+}
+
+/* Инфо секцията */
+.car-card .info {
+  padding: 15px;
+  text-align: center;
+}
+
+.car-card .info a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 18px;
+  background: #d60000;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+/* Ховър на бутона */
+.car-card .info a:hover {
+  background: #9c0000;
+}
+
+/* ⭐ Ховър върху бутона → zoom на снимката */
+.car-card .info a:hover ~ img,
+.car-card:hover img {
+  transform: scale(1.1);
+}
+
+.options {
+  flex: 1;
+  min-width: 320px;
+  background: #222;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: left;
+}
+
+.config-option h3 {
+  color: #EB0A1E;
+  margin-bottom: 10px;
+}
+
+.config-option select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  background: #333;
+  color: white;
+}
+
+.config-option label {
+  display: block;
+  margin: 8px 0;
+  color: #ccc;
+}
+
+.config-result {
+  text-align: center;
+  margin-top: 20px;
+  background: #111;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.config-result p {
+  font-size: 1.8rem;
+  margin: 10px 0;
+}
+
+/* Footer */
+footer {
+    background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  text-align: center;
+  font-weight: 500;
+  color: #111;
+  padding: 20px;
+  font-size: 14px;
+  bottom: 0;
+}
