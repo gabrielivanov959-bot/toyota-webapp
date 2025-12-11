@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caride – Начало</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Начало на header -->
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo">
+      <img src="caride.png" alt="Site Logo" height="100">
+    </a>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Начало</a></li>
+        <li><a href="cars.html">Автомобили</a></li>
+        <li><a href="about.html">За нас</a></li>
+        <li><a href="contact.html">Контакти</a></li>
+      </ul>
+    </nav>
+    <button class="mobile-toggle" aria-label="Меню">
+      ☰
+    </button>
+  </div>
+</header>
+
+
+  <section class="hero-section">
+  <video autoplay muted loop playsinline class="background-video">
+    <source src="camryad.mp4" type="video/mp4">
+  </video>
+
+   <div class="hero-content">
+    <h2>Toyota Camry</h2>
+    <p>Вземете новото Camry на цена от 75 400 лв.</p>
+    <a href="#config" class="btn">Конфигурирайте</a>
+  </div>
+</section>
+
+<!-- КОНФИГУРАТОР -->
+<section id="config" class="configurator">
+ <div class="confighead">
+  <h2>Конфигуратор Toyota Camry</h2>
+  <p>Изберете своята версия, цвят и екстри</p>
+</div>
+
+  <div class="config-container">
+    <div class="car-preview">
+      <img id="carImage" src="wcamry.png" alt="Toyota Camry" />
+    </div>
+
+    <div class="options">
+      <div class="config-option">
+        <h3>Двигател</h3>
+        <select id="engine">
+          <option value="0">2.5 Hybrid – включен</option>
+          <option value="5600">3.0 Hybrid – +5 600 лв</option>
+        </select>
+      </div>
+
+      <div class="config-option">
+        <h3>Цвят</h3>
+        <select id="color">
+          <option value="0" data-img="wcamry.png">Бял – включен</option>
+          <option value="1400" data-img="greycamry.png">Сив – +1 400 лв</option>
+          <option value="1750" data-img="blckcamry.png">Черен – +1 750 лв</option>
+          <option value="3520" data-img="redcamry.png">Червен – +3 520 лв</option>
+          <option value="4110" data-img="bluecamry.png">Тъмно Син – +4 110 лв</option>
+          <option value="4740" data-img="browncamry.png">Кафяв – +4 740 лв</option>
+        </select>
+      </div>
+
+      <div class="config-option">
+        <h3>Джанти</h3>
+        <select id="wheels">
+          <option value="0">17" алуминиеви – включени</option>
+          <option value="2400">18" алуминиеви – +2 400 лв</option>
+        </select>
+      </div>
+
+      <div class="config-option">
+        <h3>Интериор</h3>
+        <select id="interior">
+          <option value="0">Текстилен – включен</option>
+          <option value="1400">Полу-кожен – +1 400 лв</option>
+          <option value="2500">Кожен – +2 500 лв</option>
+        </select>
+      </div>
+
+      <div class="config-option">
+        <h3>Допълнителни екстри</h3>
+        <label><input type="checkbox" value="800" class="extra"> Подгрев на седалки (+800 лв)</label><br>
+        <label><input type="checkbox" value="1000" class="extra"> Навигация (+1 000 лв)</label><br>
+        <label><input type="checkbox" value="1500" class="extra"> Пакет Безопасност (+1 500 лв)</label>
+      </div>
+
+      <div class="config-result">
+        <h3>Крайна цена:</h3>
+        <p id="price">75 400 лв</p>
+        <a href="contact.html" class="btn">Свържи се с нас</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JS ЗА КАЛКУЛАЦИИ И СМЯНА НА СНИМКИ -->
+<script>
+const basePrice = 75400;
+const selects = document.querySelectorAll('select');
+const extras = document.querySelectorAll('.extra');
+const priceEl = document.getElementById('price');
+const colorSelect = document.getElementById('color');
+const carImage = document.getElementById('carImage');
+
+function updatePrice() {
+  let total = basePrice;
+  selects.forEach(sel => total += parseInt(sel.value));
+  extras.forEach(ch => { if (ch.checked) total += parseInt(ch.value); });
+  priceEl.textContent = total.toLocaleString('bg-BG') + ' лв';
+}
+
+// Смяна на снимката според избрания цвят
+colorSelect.addEventListener('change', (e) => {
+  const selectedOption = e.target.selectedOptions[0];
+  const newImage = selectedOption.dataset.img;
+  carImage.src = newImage;
+  updatePrice();
+});
+
+selects.forEach(sel => sel.addEventListener('change', updatePrice));
+extras.forEach(ch => ch.addEventListener('change', updatePrice));
+</script>
+
+  <footer>
+    <p>&copy; 2025 Caride. Всички права запазени.</p>
+  </footer>
+
+</body>
+</html>

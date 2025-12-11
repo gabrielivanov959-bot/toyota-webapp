@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caride – Конфигуратор Yaris</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo">
+      <img src="caride.png" alt="Caride Logo" height="80">
+    </a>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Начало</a></li>
+        <li><a href="cars.html">Автомобили</a></li>
+        <li><a href="about.html">За нас</a></li>
+        <li><a href="contact.html">Контакти</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="configurator">
+  <h2>Конфигуратор Toyota Yaris</h2>
+  <p>Изберете вашата идеална конфигурация и вижте крайната цена.</p>
+
+  <div class="config-grid">
+
+    <div class="config-option">
+      <h3>Двигател</h3>
+      <select id="engine">
+        <option value="0">1.0 бензин – включен</option>
+        <option value="2500">1.5 бензин – +2 500 лв</option>
+        <option value="4800">1.5 Hybrid – +4 800 лв</option>
+      </select>
+    </div>
+
+    <div class="config-option">
+      <h3>Цвят</h3>
+      <select id="color">
+        <option value="0">Бял – включен</option>
+        <option value="700">Черен металик – +700 лв</option>
+        <option value="900">Червен – +900 лв</option>
+        <option value="1100">Син – +1 100 лв</option>
+      </select>
+    </div>
+
+    <div class="config-option">
+      <h3>Джанти</h3>
+      <select id="wheels">
+        <option value="0">15" стандартни – включени</option>
+        <option value="1200">16" алуминиеви – +1 200 лв</option>
+        <option value="2200">17" спортни – +2 200 лв</option>
+      </select>
+    </div>
+
+    <div class="config-option">
+      <h3>Интериор</h3>
+      <select id="interior">
+        <option value="0">Текстилен – включен</option>
+        <option value="1400">Полу-кожен – +1 400 лв</option>
+        <option value="2500">Кожен – +2 500 лв</option>
+      </select>
+    </div>
+
+    <div class="config-option">
+      <h3>Допълнителни екстри</h3>
+      <label><input type="checkbox" value="800" class="extra"> Подгрев на седалки (+800 лв)</label><br>
+      <label><input type="checkbox" value="1000" class="extra"> Навигация (+1 000 лв)</label><br>
+      <label><input type="checkbox" value="1500" class="extra"> Пакет Безопасност (+1 500 лв)</label>
+    </div>
+  </div>
+
+  <div class="config-result">
+    <h3>Крайна цена:</h3>
+    <p id="price">42 300 лв</p>
+    <a href="contact.html" class="btn">Свържи се с нас</a>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 Caride. Всички права запазени.</p>
+</footer>
+
+<script>
+const basePrice = 42300;
+const selects = document.querySelectorAll('select');
+const extras = document.querySelectorAll('.extra');
+const priceEl = document.getElementById('price');
+
+function updatePrice() {
+  let total = basePrice;
+  selects.forEach(sel => total += parseInt(sel.value));
+  extras.forEach(ch => { if (ch.checked) total += parseInt(ch.value); });
+  priceEl.textContent = total.toLocaleString('bg-BG') + ' лв';
+}
+
+selects.forEach(sel => sel.addEventListener('change', updatePrice));
+extras.forEach(ch => ch.addEventListener('change', updatePrice));
+</script>
+
+</body>
+</html>
